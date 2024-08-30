@@ -11,13 +11,18 @@ const eventSchema = mongoose.Schema({
         required: [true, "Enter Event Description"],
     },
 
-    Owner: {
-        type: String,
-        required: [true, "Enter enter owner name"],
+    // Owner: {
+    //     type: String,
+    //     required: [true],
+    // },
+    user: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', 
+        required: true,
     },
 },
 {
     timestamps: true,
 }
 );
-module.exports = mongoose.model("Events", eventSchema);
+module.exports = mongoose.model("Event", eventSchema);

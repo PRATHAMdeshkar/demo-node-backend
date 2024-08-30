@@ -26,7 +26,10 @@ const createUser = asyncHandler(async(req,res) =>{
 
 //@route Delete /api/users/:id
 const deleteUser = asyncHandler(async(req,res) =>{
-    const deleteUser = await User.findByIdAndDelete(req.params.id)
+    const { id } = req.params;
+    // const deleteUser = await User.findByIdAndDelete(req.params.id)
+    const deletedUser = await User.findByIdAndDelete(id);
+
 
     res.status(200).json(deleteUser);
 });
