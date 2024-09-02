@@ -2,27 +2,23 @@ const asyncHandler = require("express-async-handler");
 const Event = require("../models/EventModel");
 const user = require("../models/UserModel");
 
-//@desc get all Events
+
 //@route GET /api/events
-//@access public
 const getEvents = asyncHandler(async (req, res) => {
-    const events = await Event.find().populate('user', 'UserName');
+    const events = await Event.find().populate('user', 'UserName companyName');
     res.status(200).json(events);
 });
 
 
-//@desc get Event
+
 //@route GET /api/events/:id
-//@access public
 const getEvent = asyncHandler(async(req, res) => {
-    const event= await Event.findById(req.params.id).populate('user', 'UserName');
+    const event= await Event.findById(req.params.id).populate('user', 'UserName companyName');
     res.status(200).json(event);
 });
 
 
-//@desc create event
 //@route POST /api/events
-//@access public
 const createEvent =asyncHandler (async(req, res) => {
     console.log("The request body is: ", req.body);
     const { EventName,Description, userId} =req.body;
@@ -36,7 +32,6 @@ const createEvent =asyncHandler (async(req, res) => {
     const event = await Event.create({
         EventName,
         Description,
-        Owner: user.UserName,
         user : userId,
     });
 
@@ -44,9 +39,7 @@ const createEvent =asyncHandler (async(req, res) => {
 });
 
 
-//@desc update event
 //@route PUT /api/events/:id
-//@access public
 const updateEvent = asyncHandler(async(req, res) => {
 
     const { id } = req.params;
@@ -60,9 +53,7 @@ const updateEvent = asyncHandler(async(req, res) => {
 });
 
 
-//@desc DELETE event
 //@route DELETE /api/events/:id
-//@access public
 const deleteEvent = asyncHandler(async(req, res) => {
     const { id } = req.params;
 
