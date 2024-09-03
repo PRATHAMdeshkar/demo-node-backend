@@ -5,15 +5,15 @@ const user = require("../models/UserModel");
 
 //@route GET /api/events
 const getEvents = asyncHandler(async (req, res) => {
-    const events = await Event.find().populate('user', 'UserName companyName');
+    const events = await Event.find().populate('user', 'UserName ContactNo');
     res.status(200).json(events);
 });
 
 
 
 //@route GET /api/events/:id
-const getEvent = asyncHandler(async(req, res) => {
-    const event= await Event.findById(req.params.id).populate('user', 'UserName companyName');
+const getEvent = asyncHandler(async(req, res) => {         
+    const event= await Event.findById(req.params.id).populate('user', 'UserName ContactNo');
     res.status(200).json(event);
 });
 
@@ -43,12 +43,23 @@ const createEvent =asyncHandler (async(req, res) => {
 const updateEvent = asyncHandler(async(req, res) => {
 
     const { id } = req.params;
+    const {userId, EventName , Description}= req.body;
 
-    const updateEvent = await Event.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {new:true}
-    );
+    let event= await Event.findById(id);
+
+
+    if (userId && userId !== event.user.toString()) {
+        const foundUser = await user.findById(userId);
+
+        event.user = userId;  
+     }
+
+    if(EventName) event.EventName =EventName;
+    if(Description) event.Description = Description;
+
+    await event.save();
+    event = await Event.findById(id).populate('user', 'UserName ContactNo');
+
     res.status(200).json(updateEvent);
 });
 
