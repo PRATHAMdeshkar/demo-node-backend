@@ -1,0 +1,25 @@
+<div class="shadow border  p-4">
+    <h3 class="p-3">Create User</h3>
+
+    <form [formGroup]="userForm">
+        <div class="flex flex-wrap">
+                <mat-form-field class="w-full">
+                  <mat-label>Name</mat-label>
+                  <input type="text" matInput formControlName="UserName"/>
+                </mat-form-field>
+
+                <mat-form-field class="w-full">
+                    <mat-label>Number</mat-label>
+                    <input type="text" matInput formControlName="ContactNo"/>
+                </mat-form-field>
+
+                  <mat-form-field class="w-full">
+                    <mat-label>Company</mat-label>
+                    <input type="text" matInput formControlName="companyName"/>
+                </mat-form-field>
+        </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="addUser()">Add User</button>
+        </div>
+    </form>
+</div>
