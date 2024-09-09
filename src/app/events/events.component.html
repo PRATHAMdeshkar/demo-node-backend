@@ -1,0 +1,37 @@
+<div class ="shadow p-4 border">
+    <div class="flex justify-between p-3">
+        <h2 class="text-xl font-semibold">Event Data</h2>
+        <button mat-raised-button color="primary" routerLink="/events/add">Create Event</button>
+    
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>EventName</th>
+                <th>Description</th>
+                <th>Owner</th>
+                <th>Action</th>
+                
+    
+            </tr>
+        </thead>
+        <tbody>
+            @for (event of events; track $index) {
+                <tr>
+                    <td>{{event._id}}</td>
+                    <td>{{event.EventName}}</td>
+                    <td>{{event.Description}}</td>
+                    <td>{{event.user.UserName}}</td>
+                    <td>   
+                        <button mat-raised-button color="basic" class="mr-4">Delete</button>
+                        <button mat-raised-button color="accent" class="mr-4">Edit</button>
+                    </td>
+                    
+                </tr>
+            }
+    
+        </tbody>
+    </table>
+    
+    </div>

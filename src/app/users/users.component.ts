@@ -25,9 +25,7 @@ export class UsersComponent {
 this.userService.deleteUser(id).subscribe((result)=>{
   alert('User deleted');
   this.users = this.users.filter((u) => u._id !== id); 
-
 })
-
   }
 }
 

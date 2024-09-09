@@ -1,0 +1,25 @@
+<div class="shadow border  p-4">
+    <h3 class="p-3">Create Event</h3>
+
+    <form [formGroup]="eventForm">
+        <div class="flex flex-wrap">
+                <mat-form-field class="w-full">
+                  <mat-label>EventName</mat-label>
+                  <input type="text" matInput formControlName="EventName"/>
+                </mat-form-field>
+
+                <mat-form-field class="w-full">
+                    <mat-label>Description</mat-label>
+                    <input type="text" matInput formControlName="Description"/>
+                </mat-form-field>
+
+                <mat-form-field class="w-full">
+                    <mat-label>Owner (User ID)</mat-label>
+                    <input type="text" matInput formControlName="user" /> 
+                  </mat-form-field>
+                </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="addEvent()">Create Event</button>
+        </div>
+    </form>
+</div>
