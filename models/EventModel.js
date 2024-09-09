@@ -11,10 +11,6 @@ const eventSchema = mongoose.Schema({
         required: [true, "Enter Event Description"],
     },
 
-    // Owner: {
-    //     type: String,
-    //     required: [true],
-    // },
     user: { 
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User', 

@@ -5,7 +5,7 @@ const user = require("../models/UserModel");
 
 //@route GET /api/events
 const getEvents = asyncHandler(async (req, res) => {
-    const events = await Event.find().populate('user', 'UserName ContactNo');
+    const events = await Event.find().populate('user', 'UserName ');
     res.status(200).json(events);
 });
 
