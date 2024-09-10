@@ -1,14 +1,118 @@
-table{
+// table{
 
-    width: 80%;
+//     width: 80%;
 
-    tr{
-        width: 80%;
-    }
+//     tr{
+//         width: 80%;
+//     }
 
-    th,
-    td{
-        padding: 0.45 rem;
-        border: 1px solid gray;
-    }
-}
+//     th,
+//     td{
+//         padding: 0.45 rem;
+//         border: 1px solid gray;
+//     }
+// }
+// .create-event-btn {
+//     display: flex;
+//     justify-content: flex-end; 
+//     margin-top: 300px;
+//   }
+  
+//   .create-event-btn button {
+//     padding: 10px 20px;
+//     font-size: 16px;
+//     font-weight: bold;
+//     background-color: #007bff; 
+//     color: white;
+//   }
+  
+//   .create-event-btn button:hover {
+//     background-color: #0056b3; 
+//   }
+  /* Base Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #54585c;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  /* Button Styles */
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  
+  button.mat-raised-button {
+    background-color: #007BFF; /* Primary color */
+    font-size: 16px;
+  }
+  
+  button.mat-raised-button.primary {
+    background-color: #28a745; /* Add User Button */
+  }
+  
+  button.mat-raised-button.accent {
+    background-color: #ffc107; /* Delete Button */
+  }
+  
+  button.mat-raised-button.color {
+    background-color: #dc3545; /* Edit Button */
+  }
+  
+  /* Responsive Button Container */
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .button-container .mat-raised-button {
+    margin-left: 10px;
+  }
+  

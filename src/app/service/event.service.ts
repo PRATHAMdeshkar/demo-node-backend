@@ -16,4 +16,7 @@ export class EventService {
   addEvent(model:Event){
     return this.httpClient.post(this.apiUrl+'/api/events', model);
   }
+  deleteEvent(id: string) {
+    return this.httpClient.delete(this.apiUrl + `/api/events/${id}`); 
+  }
 }

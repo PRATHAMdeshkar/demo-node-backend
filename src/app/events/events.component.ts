@@ -21,4 +21,11 @@ export class EventsComponent {
       console.log(this.events)
     })
 };
+
+delete(id:string){
+  this.eventService.deleteEvent(id).subscribe((result)=>{
+    alert('Event deleted');
+    this.events = this.events.filter((u) => u._id !== id); 
+  })
+    }
 }
