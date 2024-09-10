@@ -23,7 +23,7 @@ export class EventFormComponent implements OnInit{
     eventForm:FormGroup= this.formBuilder.group({
       EventName:[''],
       Description:[''],
-      user:[''],
+      userId:[''],
   
     });
 
@@ -39,6 +39,7 @@ export class EventFormComponent implements OnInit{
 
     addEvent(){
       const model:Event= this.eventForm.value;
+      console.log("Payload to be sent: ", model); 
       this.eventService.addEvent(model).subscribe({
         next: (result) => {
           alert('Event Created.');
