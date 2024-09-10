@@ -3,14 +3,14 @@ const router =express.Router();
 const { getEvent, createEvent, getEvents, deleteEvent, updateEvent} = require("../controllers/eventController");
 
 
-router.route("/").get(getEvents);
+router.get("/",getEvents);
 
-router.route("/:id").get(getEvent);
+router.get("/:id",getEvent);
 
-router.route("/").post(createEvent);
+router.post("/",createEvent);
 
-router.route("/:id").put(updateEvent);
+router.put("/:id",updateEvent);
 
-router.route("/:id").delete(deleteEvent);
+router.delete("/:id",deleteEvent);
 
 module.exports= router;
